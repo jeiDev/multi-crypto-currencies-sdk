@@ -1,0 +1,1 @@
+export type EstimateModeOptionBumpFeeWalletBitcoinType = "unset" | "economical" | "conservative"
