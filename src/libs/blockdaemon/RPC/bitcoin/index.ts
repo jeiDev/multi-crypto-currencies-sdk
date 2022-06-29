@@ -4,7 +4,7 @@ import Bitcoin from "../../../core/bitcoin";
 import configs from "../../../../config";
 
 const defaultData = configRPC[ProtocolEnum.BITCOIN];
-const token: string = configs.blockDaemon.apiKey;
+const token: string = configs.blockDaemon.apiKeyWebsocket;
 
 class BitcoinRCPBlockDaemon extends Bitcoin{
     constructor(api: string){

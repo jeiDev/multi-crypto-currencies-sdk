@@ -4,7 +4,7 @@ export interface BlockDaemonConfigI{
     protocols: Array<ProtocolBlockDaemonConfigI | string>
     network: string
     apiWebSocket: string
-    apiKey: string
+    apiKeyWebsocket: string
     apiRPC: string
 }
 

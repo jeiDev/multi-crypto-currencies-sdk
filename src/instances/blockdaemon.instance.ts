@@ -11,7 +11,7 @@ const blockDaemon = {
         return Promise.all(config.protocols.map(async protocol => {
             const instance = new BlockDaemon({
                 protocol,
-                token: config.apiKey,
+                token: config.apiKeyWebsocket,
                 rpc: {
                     api: replaceUrlString(config.apiRPC, {
                         protocol,
@@ -27,13 +27,13 @@ const blockDaemon = {
             });
 
             if(protocol == "bitcoin"){
-                let rpc: Bitcoin = instance.rpc;
-                // instance.rpc?.wallet
-                rpc.wallet.create({name: "test"}).then(resp => {
-                    console.log({resp})
-                }).catch(error => {
-                    console.log({error})
-                })
+                // let rpc: Bitcoin = instance.rpc;
+                // // instance.rpc?.wallet
+                // rpc.wallet.create({name: "test"}).then(resp => {
+                //     console.log({resp})
+                // }).catch(error => {
+                //     console.log({error})
+                // })
             }
 
             await instance.start();
