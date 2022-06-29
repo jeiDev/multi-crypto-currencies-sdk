@@ -1,0 +1,16 @@
+{
+    "watch": [
+        "src",
+        "__test__"
+    ],
+    "ext": "ts,js",
+    "ignore": [
+        "node_modules",
+        "build"
+    ],
+    "exec": "npx ts-node ./src/index.ts",
+    "restartable": "rs",
+    "env": {
+        "NODE_ENV": "development"
+    }
+}
