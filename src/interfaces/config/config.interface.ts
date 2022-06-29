@@ -8,6 +8,45 @@ export interface BlockDaemonConfigI{
     apiRPC: string
 }
 
+export interface ExtraSSL {
+    ssl: {
+        rejectUnauthorized: boolean
+    }
+}
+
+export interface DB {
+    name: string
+    type: string
+    url: string
+    host: string
+    port: number
+    username: string
+    password: string
+    database: string
+    ssl: boolean
+    schema: string
+    synchronize: boolean
+    logging: boolean
+    autoReconnect: boolean
+    reconnectTries: number
+    reconnectInterval: number
+    extra?: ExtraSSL
+    entities: Array<string>
+    migrations: Array<string>
+    seeds: Array<string>
+    factories: Array<string>
+    subscribers: Array<string>
+    cli?: { [key: string]: string }
+}
+
+export interface SERVER {
+    nodeEnv: string
+    port: number
+    isProd: boolean
+}
+
 export interface ConfigI{
     blockDaemon: BlockDaemonConfigI
+    db: DB
+    server: SERVER
 }
