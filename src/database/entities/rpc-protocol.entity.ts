@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, Generated, PrimaryColumn } from "typeorm";
 import { CryptoCurrencyRPCProtocolEnum, NameRPCProtocolEnum } from "../../interfaces/entity/rpc-protocol/rpc-protocol.enum";
+import { CryptoCurrencyType } from "../../interfaces/entity/rpc-protocol/rpc-protocol.type";
 import { Base } from "./base";
 
 @Entity({ name: "rpc-protocols" })
@@ -24,7 +25,7 @@ export class RPCProtocolEntity extends Base {
         type: "enum",
         enum: CryptoCurrencyRPCProtocolEnum
     })
-    cryptoCurrency: CryptoCurrencyRPCProtocolEnum;
+    cryptoCurrency: CryptoCurrencyType;
 
     @CreateDateColumn({ type: "timestamptz" })
     createdAt: Date;
