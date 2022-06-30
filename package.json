@@ -2,15 +2,17 @@
    "name": "core-ubiquity-blockdaemon",
    "version": "1.0.0",
    "description": "",
-   "main": "index.js",
+   "main": "./src/index.ts",
    "scripts": {
       "dev": "nodemon",
       "build": "tsc -b",
-      "model:create": "ts-node ./node_modules/typeorm/cli.js entity:create -n",
-      "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -n",
-      "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
-      "start": "ts-node src/index.ts",
-      "typeorm": "typeorm-ts-node-commonjs"
+      "typeorm": "ts-node ./node_modules/typeorm/cli.js -d ./src/database/connection/index.ts",
+      "migration:generate": "npm run typeorm migration:generate ./src/database/migrations/%npm_config_name%",
+      "migration:create": "typeorm migration:create ./src/database/migrations/%npm_config_name%",
+      "migration:show": "npm run typeorm migration:show",
+      "migration:run": "npm run typeorm migration:run",
+      "model:create": "npm run typeorm entity:create ./src/database/entities/%npm_config_name%",
+      "start": "ts-node src/index.ts"
    },
    "keywords": [],
    "author": "Media Revolution",
@@ -20,16 +22,17 @@
       "@types/node": "^16.11.10",
       "@types/ws": "^8.5.3",
       "nodemon": "^2.0.18",
-      "typescript": "4.5.2",
-      "ts-node": "10.7.0"
+      "ts-node": "10.7.0",
+      "typescript": "4.5.2"
    },
    "dependencies": {
       "axios": "^0.27.2",
+      "class-transformer": "^0.5.1",
       "dotenv": "^16.0.1",
       "express": "^4.18.1",
-      "pg": "^8.4.0",
+      "pg": "^8.7.3",
       "reflect-metadata": "^0.1.13",
-      "typeorm": "0.3.7",
+      "typeorm": "^0.3.7",
       "ws": "^8.8.0"
    }
 }

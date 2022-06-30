@@ -48,8 +48,8 @@ const db: DB = {
         path.join(__dirname, "/../database/subscribers/*.{ts,js}")
     ],
     cli: {
-       entitiesDir: path.join(__dirname, "/../database/migrations"),
-       migrationsDir: path.join(__dirname, "/../database/factories"),
+       entitiesDir: path.join(__dirname, "/../database/entities"),
+       migrationsDir: path.join(__dirname, "/../database/migrations"),
        subscribersDir: path.join(__dirname, "/../database/subscribers")
     }
 }
