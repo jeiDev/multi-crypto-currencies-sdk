@@ -6,9 +6,5 @@ import { RPCProtocolEntity } from "../../entities/rpc-protocol.entity";
 define(RPCProtocolEntity, () => {
   const RPCProtocol = new RPCProtocolEntity();
 
-  RPCProtocol.api = "";
-  RPCProtocol.apiKey = "";
-  RPCProtocol.cryptoCurrency = CryptoCurrencyRPCProtocolEnum.BTC;
- 
   return RPCProtocol;
 });

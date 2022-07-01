@@ -39,10 +39,10 @@ const db: DB = {
         path.join(__dirname, "/../database/migrations/*.{ts,js}")
     ],
     seeds: [
-        path.join(__dirname, "/../database/seeds/*.seed.{ts,js}")
+        path.join(__dirname, "/../database/seeding/seeds/*.seed.{ts,js}")
     ],
     factories: [
-        path.join(__dirname, "/../database/factories/*.{ts,js}")
+        path.join(__dirname, "/../database/seeding/factories/*.factory.{ts,js}")
     ],
     subscribers: [
         path.join(__dirname, "/../database/subscribers/*.{ts,js}")
