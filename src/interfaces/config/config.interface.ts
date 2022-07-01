@@ -14,7 +14,7 @@ export interface ExtraSSL {
     }
 }
 
-export interface DB {
+export interface DBI {
     name: string
     type: string
     url: string
@@ -39,14 +39,23 @@ export interface DB {
     cli?: { [key: string]: string }
 }
 
-export interface SERVER {
+export interface ServerI {
     nodeEnv: string
     port: number
     isProd: boolean
+    isLive: boolean
+}
+
+export interface CookieI {
+   secret: string
+   domain: string
+   secure: boolean
+   maxAge: number
 }
 
 export interface ConfigI{
     blockDaemon: BlockDaemonConfigI
-    db: DB
-    server: SERVER
+    db: DBI
+    server: ServerI
+    cookie: CookieI
 }

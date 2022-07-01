@@ -1,14 +1,15 @@
 import 'dotenv/config';
 import path from "path";
-import { BlockDaemonConfigI, ConfigI, DB, SERVER } from '../interfaces/config/config.interface';
+import { BlockDaemonConfigI, ConfigI, CookieI, DBI, ServerI } from '../interfaces/config/config.interface';
 
-const server: SERVER = {
+const server: ServerI = {
     isProd: ["production"].includes(`${process.env.NODE_ENV}`),
+    isLive: ["production", "staging"].includes(`${process.env.NODE_ENV}`),
     port: parseInt(`${process.env.PORT}`),
     nodeEnv: `${process.env.NODE_ENV}`
 }
 
-const db: DB = {
+const db: DBI = {
     name: `${process.env.TYPEORM_DB_NAME}`,
     type: "postgres",
     url: `${process.env.TYPEORM_DB_URL}`,
@@ -62,10 +63,18 @@ const blockDaemon: BlockDaemonConfigI = {
     apiRPC: `${process.env.API_RPC_BLOCKDAEMON}`
 }
 
+const cookie: CookieI = {
+    domain: `${process.env.COOKIE_DOMAIN}`,
+    secret: `${process.env.COOKIE_SECRET}`,
+    maxAge: (((24 * 60) * 60) * 1000),
+    secure: server.isLive
+}
+
 const configs: ConfigI = {
     blockDaemon,
     server,
-    db
+    db,
+    cookie
 }
 
 export default configs;
