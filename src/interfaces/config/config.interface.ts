@@ -44,6 +44,8 @@ export interface ServerI {
     port: number
     isProd: boolean
     isLive: boolean
+    user: string
+    password: string
 }
 
 export interface CookieI {

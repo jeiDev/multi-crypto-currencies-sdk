@@ -1,4 +1,4 @@
-import { ProtocolEnum } from "../../../interfaces/protocols/protocols.enum";
+import { ProtocolEnum } from "../../../interfaces/protocol/protocol.enum";
 import BitcoinRCPBlockDaemon from "./bitcoin";
 
 export default {

@@ -6,7 +6,9 @@ const server: ServerI = {
     isProd: ["production"].includes(`${process.env.NODE_ENV}`),
     isLive: ["production", "staging"].includes(`${process.env.NODE_ENV}`),
     port: parseInt(`${process.env.PORT}`),
-    nodeEnv: `${process.env.NODE_ENV}`
+    nodeEnv: `${process.env.NODE_ENV}`,
+    user: `${process.env.SERVER_USER}`,
+    password: `${process.env.SERVER_PASSWORD}`
 }
 
 const db: DBI = {

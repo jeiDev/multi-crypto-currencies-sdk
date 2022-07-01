@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, Generated, JoinTable, ManyToMany, OneToMany, PrimaryColumn } from "typeorm"
 import { Base } from "./base";
 import { RPCProtocolEntity } from "./rpc-protocol.entity";
@@ -5,6 +6,7 @@ import { WalletEntity } from "./wallet.entity";
 
 @Entity({ name: "applications" })
 export class ApplicationEntity extends Base {
+    @Exclude({ toPlainOnly: true })
     @Generated('increment')
     @PrimaryColumn("int8")
     id: number;
@@ -12,7 +14,8 @@ export class ApplicationEntity extends Base {
     @Column({ type: "text" })
     name: string;
 
-    @Column({ type: "text" })
+    @Exclude({ toPlainOnly: true })
+    @Column({ type: "text", unique: true })
     slug: string;
     
     @Column({ type: "text" })
@@ -21,9 +24,11 @@ export class ApplicationEntity extends Base {
     @CreateDateColumn({ type: "timestamptz" })
     createdAt: Date;
 
+    @Exclude({ toPlainOnly: true })
     @DeleteDateColumn({ type: "timestamptz" })
     deletedAt: Date;
     
+    @Exclude({ toPlainOnly: true })
     @ManyToMany(() => RPCProtocolEntity)
     @JoinTable({
         name: "applications-protocols",

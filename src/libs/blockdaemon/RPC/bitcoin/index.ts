@@ -1,5 +1,5 @@
 import { configRPC } from "../../../../interfaces/blockdaemon/RPC/rpc.enum";
-import { ProtocolEnum } from "../../../../interfaces/protocols/protocols.enum";
+import { ProtocolEnum } from "../../../../interfaces/protocol/protocol.enum";
 import Bitcoin from "../../../core/bitcoin";
 import configs from "../../../../config";
 
