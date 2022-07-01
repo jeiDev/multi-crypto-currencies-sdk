@@ -1,1 +1,0 @@
-export type ProtocolBlockDaemonConfigI = "bitcoin" | "ethereum";
