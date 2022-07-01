@@ -1,11 +1,11 @@
 import { Class } from "@swc/core";
-import { BlockDaemonI } from "../../interfaces/blockdaemon/blockdaemon.interface";
+import { BlockDaemonI, RCPBlockDaemon } from "../../interfaces/blockdaemon/blockdaemon.interface";
 import BlockDaemonWebsocket from "./websocket";
 import RPC from "./RPC";
 
 class BlockDaemon {
     public readonly websocket?: BlockDaemonWebsocket;
-    public readonly rpc;
+    public readonly rpc?: RCPBlockDaemon;
 
     constructor(config: BlockDaemonI){
 
@@ -14,14 +14,14 @@ class BlockDaemon {
             let instance = RPC[config.protocol];
     
             if(typeof instance == "function"){
-                this.rpc = new instance(config.rpc.api);
+                this.rpc = new instance(config.rpc);
             }
         }
 
         if(config.websocket){
             this.websocket = new BlockDaemonWebsocket(config.websocket, {
                 headers:{ 
-                    Authorization: `Bearer ${config.token}`
+                    Authorization: `Bearer ${config.websocket.token}`
                 }
             });
         }

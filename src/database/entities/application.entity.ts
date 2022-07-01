@@ -33,11 +33,11 @@ export class ApplicationEntity extends Base {
     @JoinTable({
         name: "applications-protocols",
         inverseJoinColumn: {
-            name: "applicationId",
-            referencedColumnName: "id"
+            name: "protocolId",
+            referencedColumnName: "id" 
         },
         joinColumn: {
-            name: "protocolId",
+            name: "applicationId",
             referencedColumnName: "id"
         }
     })

@@ -1,8 +1,8 @@
 import { ProtocolBlockDaemonConfigI } from "../blockdaemon/blockdaemon.type"
 
 export interface ConfigClientWebsocketI{
+    token: string
     url: string
-    protocol?: ProtocolBlockDaemonConfigI | string
 }
 
 export interface ConfigServerWebsocketI{
