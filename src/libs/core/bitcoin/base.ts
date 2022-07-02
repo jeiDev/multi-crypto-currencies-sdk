@@ -10,8 +10,8 @@ class BitcoinBase extends Base {
     constructor(api: string, defaultData: Object, token: string){
         super(api, {}, {
             'Content-Type': 'application/json',
-            'X-Auth-Token': `Bearer ${token}`
-        })
+            'X-Auth-Token': token
+        }, true)
         this.defaultData = defaultData;
     }
     

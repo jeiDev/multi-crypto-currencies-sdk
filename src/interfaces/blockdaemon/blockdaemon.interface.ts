@@ -1,3 +1,4 @@
+import { RPCProtocolEntity } from "../../database/entities/rpc-protocol.entity"
 import { ConfigClientWebsocketI } from "../websocket/websocket.interface"
 import { ProtocolBlockDaemonConfigI } from "./blockdaemon.type"
 
@@ -8,13 +9,14 @@ export interface ResponseOnMessageCallbackBlockDaemonI{
 
 export interface WebsocketBlockDaemonI extends ConfigClientWebsocketI{}
 
-export interface RPCBlockDaemonI {
-    api: string
-}
-
 export interface BlockDaemonI{
     protocol: ProtocolBlockDaemonConfigI | string
-    token: string
     websocket?: WebsocketBlockDaemonI
-    rpc: RPCBlockDaemonI
+    rpc: RPCProtocolEntity
+}
+
+export class RCPBlockDaemon{
+    createWallet(name: string): Promise<any>{
+        return new Promise(() => true);
+    }
 }

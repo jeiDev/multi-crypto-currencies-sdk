@@ -1,4 +1,4 @@
-import { ProtocolEnum } from "../../protocols/protocols.enum";
+import { ProtocolEnum } from "../../protocol/protocol.enum";
 
 export const configRPC = {
     [ProtocolEnum.BITCOIN]: {
